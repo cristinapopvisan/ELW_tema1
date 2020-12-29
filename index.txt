@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head> <!-- *********************************************************************************************** HEAD START -->
+   
+    <meta charset="UTF-8"> <!-- primul lucru din head! -->
+    <meta name="author" content="Pop-Vișan Cristina">
+    <meta name="application-name" content="FantasyTasteRestaurant">
+    <meta name="description" content="FantasyTasteRestaurantWebPage">
+    <meta name="keywords" content="restaurant, meniu, mancare, bar">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- dimensiunea se ajusteaza in functie de device -->
+    
+    <title>Fantasy Taste Restaurant</title> <!-- dupa toate meta-urile! -->
+    
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <style> /* ------------------------------------------------------------------------------------------- STYLE START */
+    
+        * {
+            margin: 0; /* pentru a-mi incadra imaginea exact dintr-un capat in celalalt */
+            padding: 0;
+            /* box-sizing: border-box; */
+        }
+        
+        .clearfix::after { 
+            content: "";
+            clear: both; 
+            display: table; /* folosim table daca vrem ca elementele sa apara pe acelasi rand */
+        }
+        
+        header { 
+            background: url("header_image.jpg") left bottom no-repeat;
+            background-size: cover;
+            height: 695px;
+        }
+        
+        body {
+            background-color: #c1946a;
+        }
+        
+        .stanga {
+            float: left;
+        }
+
+        .dreapta {
+            float: right; 
+        }
+        
+        h1 {
+            color: #c1946a;
+            font-size: 600%;
+            font-family: sacramento, cursive;
+            font-weight: bold;
+            padding-left: 3%;
+            padding-top: 4%;
+            text-shadow: 15px 15px 17px black;
+        }
+        
+        h2 {
+            color: #3e4444;
+            font-size: 500%;
+            font-family: sacramento, cursive;
+            font-weight: inherit;
+            text-align: center;
+            padding-top: 2%;
+            text-shadow: 15px 15px 17px black;
+        }
+        
+        h3 {
+            color: #c1946a; /* aceasta culoare este singura diferenta fata de h2 */
+            font-size: 500%;
+            font-family: sacramento, cursive;
+            font-weight: inherit;
+            text-align: center;
+            padding-top: 2%;
+            text-shadow: 15px 15px 17px black;
+        }
+        
+        h4 {
+            color: #c1946a;
+            font-size: 600%;
+            font-family: sacramento, cursive;
+            font-weight: bold;
+            padding-left: 10%; /* la fel ca h1, cu aceasta mica diferenta de padding */
+            text-shadow: 15px 15px 17px black;
+        }
+        
+        .paragraf_restaurant {
+            color: #fff2df;
+            font-size: 130%;
+            font-family: poppins, sans-serif;
+            font-weight: normal;
+            text-align: left; /* mai frumos centrat (⌣́_⌣̀) */
+            padding-left: 600px;
+            margin: 60px;
+            padding-bottom: 170px;
+        }
+        
+        .paragraf_bar {
+            color: #fff2df;
+            font-size: 130%;
+            font-family: poppins, sans-serif;
+            font-weight: normal;
+            text-align: left; /* mai frumos centrat (⌣́_⌣̀) */
+            padding-right: 530px;
+            padding-top: 10%;
+            margin: 90px;
+        }
+
+        .navigation_bar {
+            background-color: #fff2df;
+            opacity: 0.7;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .navigation_bar a {
+            padding: 20px 50px 20px 50px; /* spatiul alocat butoanelor din bara de navigare => padding top, right, bottom, left (in aceasta ordine) */
+            font-family: montserrat, sans-serif;
+            letter-spacing: 2px;
+            font-size: 15px;
+            color: #c1946a;
+            text-decoration: none; /* implicit ancorele au underline */
+        }
+        
+        .navigation_bar a:hover {
+            background-color: #c1946a;
+            color: #fff2df;
+        }
+        
+        .box1 {
+            background-color: #82b74b;
+            text-align: left;
+            color: #3e4444;
+            width: 250px;
+            height: 250px;
+            padding: 35px;
+            margin: 40px;
+            margin-left: 400px;
+            font-family: poppins, sans-serif;
+            font-size: 30px;
+            position: absolute; /* se pune peste alte elemente */
+            box-shadow: 15px 15px 17px black;
+        }
+        
+        .box2 {
+            background-color: #3e4444;
+            text-align: left;
+            color: #82b74b;
+            width: 250px;
+            height: 250px;
+            padding: 35px;
+            margin: 40px;
+            margin-left: 600px;
+            font-family: poppins, sans-serif;
+            font-size: 30px;
+            position: absolute; /* se pune peste alte elemente */
+            box-shadow: 15px 15px 17px black;
+        }
+        
+        .txt {
+            font-size: 15px;
+        }
+        
+        .sandwich_img {
+            margin-left: 250px;
+            width: 45%;
+            border: 10px solid #3e4444;
+            border-radius: 6px;
+        }
+        
+        .buritto_img {
+            width: 50%;
+            border: 10px solid #82b74b;
+            border-radius: 6px;
+        }
+        
+        .arrow_right {
+            width: 25%;
+            padding-top: 120px;
+        }
+        
+        .arrow_left {
+            width: 25%;
+            padding-top: 90px;
+            padding-left: 280px;
+        }
+        
+        .block1 {
+            display: inline-block;
+            padding-left: 70px;
+        }
+        
+        .block2 {
+            display: inline-block;
+            padding-left: 70px;
+            padding-bottom: 40px;
+        }
+        
+        .block3 {
+            display: inline-block;
+            padding-left: 30px;
+            padding-bottom: 20px;
+        }
+
+        .parallax1 {
+            background-image: url("parallax1.jpg");
+            min-height: 450px; 
+            background-attachment: fixed; /* parallax scrolling effect */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .parallax2 {
+            background-image: url("parallax2.jpg");
+            min-height: 450px; 
+            background-attachment: fixed; /* parallax scrolling effect */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .parallax3 {
+            background-image: url("parallax3.jpg");
+            min-height: 450px; 
+            background-attachment: fixed; /* parallax scrolling effect */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .meniu {
+            padding-left: 60px;
+            padding-bottom: 30px;
+        }
+        
+        .meniu1 {
+            background-color: #3e4444;
+            text-align: left;
+            color: #82b74b;
+            width: 610px;
+            height: 440px;
+            padding: 40px;
+            margin: 20px;
+            margin-top: 60px;
+            font-family: poppins, sans-serif;
+            font-size: 30px;
+            position: absolute;
+            box-shadow: 15px 15px 17px black;
+        }
+        
+        .meniu2 {
+            background-color: #82b74b;
+            text-align: right;
+            color: #3e4444;
+            width: 600px;
+            height: 570px;
+            padding: 40px;
+            margin-left: 600px;
+            font-family: poppins, sans-serif;
+            font-size: 30px; 
+            box-shadow: 15px 15px 17px black;
+        }
+        
+        .bar {
+            background: url("alcohol_right.jpg") right top no-repeat, url("alcohol_left.jpg") right top;
+            padding-bottom: 50px;
+        }
+        
+        .rezervare {
+            padding-left: 90px;
+        }
+        
+        .rezervare_img {
+            width: 32%;
+            box-shadow: 15px 15px 17px black;
+            margin-right: 80px;
+            margin-left: 60px;
+            border: 10px solid #82b74b;
+            border-radius: 6px;
+        }
+        
+        .tabel_rezervare {
+            border-radius: 10px;
+            background-color: #3e4444;
+            padding: 30px;
+            width: 40%;
+            margin-left: 50px;
+            margin-right: 40px;
+            margin-top: 30px;
+            margin-bottom: 50px;
+            display: inline-block;
+            box-shadow: 15px 15px 17px black;
+        }
+        
+        input[type=text], input[type=email1], input[type=tel], input[type=number], input[type=date], input[type=time] {
+            width: 49%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 2px solid #82b74b;
+            border-radius: 6px;
+            box-sizing: border-box;
+            background-color: #fff2df;
+            color: #3e4444;
+            font-family: poppins, sans-serif;
+        }
+        
+        input[type=email2] {
+            width: 99%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 2px solid #82b74b;
+            border-radius: 6px;
+            box-sizing: border-box;
+            background-color: #fff2df;
+            color: #3e4444;
+            font-family: poppins, sans-serif;
+        }
+        
+        .detalii {
+            width: 99%;
+            height: 100px;
+            padding: 12px 20px;
+            margin: 8px 0;
+            border: 2px solid #82b74b;
+            border-radius: 6px;
+            box-sizing: border-box;
+            background-color: #fff2df;
+            color: #3e4444;
+            resize: none;
+            outline: none;
+            font-family: poppins, sans-serif;
+        }
+        
+        input[type=submit] {
+            width: 99%;
+            background-color: #82b74b;
+            color: #3e4444;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: poppins, sans-serif;
+            font-size: 17px;
+        }
+        
+        input[type=submit]:hover {
+            background-color: #c1946a;
+            color: #3e4444;
+        }
+        
+        .recenzii {
+            background: url("plates.jpg");
+            height: 750px;
+            background-size: cover;
+            text-align: center;
+        }
+        
+        .person {
+            width: 40%;
+            margin: 10px;
+        }
+        
+        .recenzie1 {
+            background-color: #82b74b;
+            text-align: left;
+            color: #3e4444;
+            width: 390px;
+            height: 230px;
+            padding: 15px;
+            margin-left: 60px;
+            font-family: poppins, sans-serif;
+            font-size: 30px;
+            box-shadow: 15px 15px 17px black;
+            display: inline-block;
+        }
+        
+        .recenzie2 {
+            background-color: #3e4444;
+            text-align: left;
+            color: #82b74b;
+            width: 390px;
+            height: 230px;
+            padding: 15px;
+            margin-left: 60px;
+            font-family: poppins, sans-serif;
+            font-size: 30px;
+            box-shadow: 15px 15px 17px black;
+            display: inline-block;
+        }
+        
+        .recenzie3 {
+            background-color: #82b74b;
+            text-align: left;
+            color: #3e4444;
+            width: 390px;
+            height: 230px;
+            padding: 15px;
+            margin-left: 60px;
+            font-family: poppins, sans-serif;
+            font-size: 30px;
+            box-shadow: 15px 15px 17px black;
+            display: inline-block;
+        }
+        
+        .galerie {
+            background-color: #3e4444;
+        }
+        
+        .row {
+            content: "";
+            clear: both;
+            display: table;
+            padding-left: 75px;
+        }
+        
+        .column {
+            float: left;
+            width: 20%;
+            padding: 24px 24px; /* spatiul dintre poze stanga-dreapta, sus-jos */
+        }
+        
+        .img {
+            width: 100%;
+            transition: transform .2s;
+            box-shadow: 15px 15px 17px black;
+        }
+        
+        .img:hover {
+            transform: scale(1.4);  
+        }
+        
+        .contact {
+            padding-bottom: 0px;
+        }
+        
+        .map {
+            width: 600px;
+            height: 350px; 
+            margin-left: 50px;
+            margin-top: 40px;
+            box-shadow: 15px 15px 17px black;
+        }
+        
+        .p1 {
+            text-align: center;
+            font-family: poppins, sans-serif;
+            letter-spacing: 2px;
+            font-size: 15px;
+            color: #3e4444;
+            font-weight: bold;
+        }
+        
+        .p2 {
+            color: #fff2df;
+        }
+        
+        .buttons {
+            padding-left: 188px;
+            margin-bottom: 20px;
+        }
+        
+        .buttons a {
+            margin: 10px;
+        }
+        
+        .fa {
+            padding: 20px;
+            font-size: 30px;
+            width: 30px;
+            text-align: center;
+            text-decoration: none;
+            margin: 5px 2px;
+            border-radius: 50%;
+            box-shadow: 10px 10px 17px black;
+        }
+        
+        .fa:hover {
+            opacity: 0.7;
+        }
+        
+        .fa-facebook {
+            background: #3B5998;
+            color: white;
+        }
+
+        .fa-twitter {
+            background: #55ACEE;
+            color: white;
+        }
+
+        .fa-instagram {
+            background: #125688;
+            color: white;
+        }
+
+        .fa-pinterest {
+            background: #cb2027;
+            color: white;
+        }
+        
+        footer {
+            background-color: #3e4444;
+            color: #82b74b;
+            text-align: center;
+            font-family: poppins, sans-serif;
+            font-size: 15px; 
+            padding: 10px;
+        }
+        
+        .column1 {
+            background-color: #82b74b;
+            float: left;
+            width: 33.33%;
+            text-align: center;
+            font-family: poppins, sans-serif;
+            font-size: 15px; 
+            padding-top: 20px;
+            padding-bottom: 25px;
+            list-style-position: inside; /* pentru ca bulinele listei sa se afle langa elemente! */
+        }
+        
+        .column1 a {
+            text-decoration: none;
+            letter-spacing: 2px;
+            font-size: 15px;
+            color: #3e4444;
+            padding: 10px;
+            font-weight: bold;
+        }
+        
+        .column1 a:hover {
+            color: #fff2df;
+        }
+        
+        li {
+            margin: 10px; /* distanta intre elementele listei */
+        }
+        
+        ul {
+            
+        }
+        
+        .column2 {
+            background-color: #82b74b;
+            float: left;
+            width: 33.33%;
+            text-align: center;
+            font-family: sacramento, cursive;
+            color: #3e4444;
+            font-size: 40px; 
+            font-weight: bold;
+            padding: 66px 0px 66px 0px;
+        }
+        
+        .column3 {
+            background-color: #82b74b;
+            float: left;
+            width: 33.33%;
+            padding-top: 32px;
+            padding-bottom: 38px;
+        }
+        
+    </style> <!-- ---------------------------------------------------------------------------------------- STYLE STOP -->
+    
+</head> <!-- *********************************************************************************************** HEAD END -->
+
+
+
+<body> <!-- *********************************************************************************************** BODY START -->
+    
+    <header>
+        <a id="acasa"></a>
+       
+        <nav class="navigation_bar">
+            <a href="#acasa">ACASĂ</a>
+            <a href="#meniu">MENIU</a>
+            <a href="#rezervare">REZERVARE</a>
+            <a href="#recenzii">RECENZII</a>
+            <a href="#galerie">GALERIE</a>
+            <a href="#contact">CONTACT</a>
+        </nav>
+        
+        <h1>Fantasy Taste Restaurant</h1>
+        
+        <p class="paragraf_restaurant">Porțile restaurantului <b>Fantasy Taste</b> s-au deschis din dorința de <b>diversitate</b>, așadar în meniul nostru se găsesc preparate cu specific italian, american, românesc și nu numai.<br>Dacă îți dorești să ai parte de o atmosferă plăcută și relaxantă, Fantasy Taste Resurant este alegerea potrvită!<br>Meniul nostru cuprinde o multitudine de preparate care sunt servite cu promptitudine de către un personal amabil.<br>Restaurantul nostru se află în Cluj-Napoca pe <b>Aleea Răsăritului nr. 17</b>.<br>Te așteptăm și îți promitem că nu te vom dezamăgi!</p>
+        
+    </header>
+    
+    <main>    
+        <h2>Specialitătile noastre</h2>  
+        
+        <div class="block1">
+            <img class="arrow_right stanga" src="arrow_right.png" alt="Săgeată spre stânga">
+            <div class="box1">
+                <p class="p2">Sandwich Fantasy Taste</p>
+                <p class="txt">Sandwich-ul Fantasy Taste preparat după o rețetă specială este servit alături de o porție de cartofi prăjiți.<br>Alegerea perfectă pentru momentele în care nu știi ce să alegi din meniul nostru!</p>
+            </div>
+            <img class="sandwich_img stanga" src="specialitate1.jpg" title="Un sandwich special așa cum doar la noi găsești!" alt="Sandwich Fantasy Taste">
+        </div>
+     
+        <div class="block2">
+            <img class="buritto_img stanga" src="specialitate2.jpg" title="Cel mai bun burrito din oraș!" alt="Buritto mexican cu pui">
+            <div class="box2">
+                <p class="p2">Buritto mexican cu pui</p>
+                <p class="txt">Dacă te-ai plictisit de mâncarea cu specific italienesc sau de burgerii americani este timpul să încerci un buritto mexican cu pui și legume special alese!<br>Cu siguranță nu vei regreta (o spunem din experiență)!</p>
+            </div>
+            <img class="arrow_left stanga" src="arrow_left.png" alt="Săgeată spre dreapta"> 
+        </div>
+        
+        <div class="parallax1"></div>
+        
+        <a id="meniu"></a>
+        <h2>Meniu</h2>
+        <div class="meniu">
+            <div class="block3">
+                <div class="meniu1 stanga">
+                    <p class="p2">Paste</p>
+                    <p class="txt">Tagliatelle cu creveți si dovlecel (350 G) ....................... <span class="p2">30,00 LEI</span><br>Gnocchi quattro formaggi (400 G) ....................... <span class="p2">23,00 LEI</span><br>Linguine cu fructe de mare (350 G) ....................... <span class="p2">25,00 LEI</span><br>Tagliatelle cu somon fume (400 G) ....................... <span class="p2">35,00 LEI</span><br>Penne carbonara (400 G) ....................... <span class="p2">20,00 LEI</span><br>Penne arabiata (400 G) ....................... <span class="p2">18,00 LEI</span><br>Penne Contadina (400 G) ....................... <span class="p2">20,00 LEI</span><br><br></p>
+                    <p class="p2">Pizza</p>
+                    <p class="txt">Pizza quattro formaggi (650 G) ....................... <span class="p2">28,00 LEI</span><br>Pizza Capriciosa (600 G) ....................... <span class="p2">25,00 LEI</span><br>Pizza quattro stagioni (700 G) ....................... <span class="p2">25,00 LEI</span><br>Pizza marinara (620 G) ....................... <span class="p2">28,00 LEI</span><br>Pizza frutti di mare (650 G) ....................... <span class="p2">28,00 LEI</span><br>Pizza "Fantasy Taste" (600 G) ....................... <span class="p2">28,00 LEI</span><br>Pizza Diavola (600 G) ....................... <span class="p2">25,00 LEI</span></p>
+                </div>
+                
+                <div class="meniu2 stanga">
+                    <p class="p2">Specialități</p>
+                    <p class="txt">Șalău de Nil (500 G) ....................... <span class="p2">45,00 LEI</span><br>Biban de mare în crustă de sare (400 G) ....................... <span class="p2">25,00 LEI</span><br>Păstrăv la grătar cu sos de roșii si măsline (100 G) ....................... <span class="p2">25,00 LEI</span><br>Dorada în frunză de bananier (400 G) ....................... <span class="p2">45,00 LEI</span><br>Somon la gratar cu piure de cartofi dulci (400 G) ....................... <span class="p2">42,00 LEI</span><br>Fish and chips în crustă de bere (400 G) ....................... <span class="p2">30,00 LEI</span><br>Tartar de vită (300 G) ....................... <span class="p2">40,00 LEI</span><br>Tagliata de vită cu cartofi la cuptor (350 G) ....................... <span class="p2">40,00 LEI</span><br><br></p>
+                    <p class="p2">Salate</p>
+                    <p class="txt">Salată cu creveți si baby spanac (250 G) ....................... <span class="p2">32,00 LEI</span><br>Salată "Fantasy Taste" (350 G) ....................... <span class="p2">32,00 LEI</span><br>Salată Caesar (300 G) ....................... <span class="p2">25,00 LEI</span><br>Salată Caprese (350 G) ....................... <span class="p2">26,00 LEI</span><br><br></p>
+                    <p class="p2">Desert</p>
+                    <p class="txt">Chocolate cake (150 G) ....................... <span class="p2">15,00 LEI</span><br>Vanilla cake (150 G) ....................... <span class="p2">15,00 LEI</span><br>Original cheesecake (150 G) ....................... <span class="p2">16,00 LEI</span><br>Tiramisu (200 G) ....................... <span class="p2">14,00 LEI</span><br>Lava cake (200 G) ....................... <span class="p2">18,00 LEI</span></p>
+                    
+                </div>
+            </div> 
+        </div>
+        
+        <div class="bar">
+            <p class="paragraf_bar">Barul <b>Fantasy Taste Bar</b> se află în incinta clădirii restaurantului.<br>Vă așteptăm cu o gamă largă de băuturi alcoolice și răcoritoare și vă invităm să încercați <b>cocktailurile special preparate</b> de barmanul nostru.<br>Vinuri, răcoritoare, cafea, cocktailuri, toate acestea se regăsesc în meniul nostru.<br>În cazul aniversărilor invitații primesc câte un shot <b>din partea casei</b>.</p>
+            <h4>Fantasy Taste Bar</h4> 
+        </div> 
+        
+        <a id="rezervare"></a>
+        <h2>Rezervare</h2>
+        <div class="rezervare">
+            <img class="rezervare_img" src="meal.jpg" title="Nu o sa regreti ca ai ales sa mananci la noi!" alt="Persoane care servesc masa">
+            <div class="tabel_rezervare">
+                <form action=""> <!-- form colecteaza datele introduse de utilizator -->
+                    <!-- <label for="nume">Nume</label> -->
+                    <input type="text" placeholder="Nume"> 
+                    <!-- <label for="telefon">Telefon</label> -->
+                    <input type="tel" placeholder="Telefon"><br> 
+                    <!-- <label for="email">e-mail</label> -->
+                    <input type="email1" placeholder="e-mail"> 
+                    <!-- <label for="numar_persoane">Numar de persoane</label> -->
+                    <input type="number" placeholder="Număr persoane"><br>
+                    <!-- <label for="data">Data</label> -->
+                    <input type="date" placeholder="Data">
+                    <!-- <label for="ora">Ora</label> -->
+                    <input type="time" placeholder="Ora" min="09:00" max="20:00"><br>
+                    <!-- <label for="detalii">Detalii</label> -->
+                    <textarea class="detalii" placeholder="Detalii"></textarea><br>
+                    <input type="submit" value="Trimite rezervarea!">
+                </form>
+            </div>
+        </div>
+        
+        <a id="recenzii"></a>
+        <div class="recenzii">   
+            <h3>Recenzii</h3>
+               
+            <div class="recenzie1 stanga">
+                <img class="person stanga" src="mike_green.jpg" title="" alt="Mike Green, persoana care a scris prima recenzie">
+                <p class="stanga p2"><br>Mike Green</p>
+                <p class="txt stanga">Personal foarte amabil, servire promptă și mâncare excelentă.<br>Unul dintre cele mai bune restaurante la care am mâncat!</p>
+            </div>
+            
+            <div class="recenzie2 stanga">
+                <img class="person stanga" src="kylie_kristen.jpg" title="" alt="Kylie Kristen, persoana care a scris a doua recenzie">
+                <p class="stanga p2"><br>Kylie Kristen</p>
+                <p class="txt stanga">Mâncare și atmosferă excelentă, prețuri rezonabile. Specialitățile restaurantului sunt nemaipomenite, însă și celelalte preparate merită încercate.<br>Recomand cu încredere!</p>
+            </div>
+            
+            <div class="recenzie3 stanga">
+                <img class="person stanga" src="richard_blue.jpg" title="" alt="Richard Blue, persoana care a scris a treia recenzie">
+                <p class="stanga p2"><br>Richard Blue</p>
+                <p class="txt stanga">Atmosferă autentică.<br>Servesc cel mai bun cheesecake, iar prețurile sunt decente.<br>Cu siguranță voi reveni.</p>
+            </div>
+        </div>
+        
+        <div class="parallax2"></div>
+        
+        <a id="galerie"></a>
+        <div class="galerie">
+            <h3>Galerie</h3>
+            <div class="row">
+                <div class="column"><img class="img" src="fish1.jpg" title="Păstrăv în mălai" alt="Păstrăv în mălai"></div>
+                <div class="column"><img class="img" src="pizza.jpg" title="Pizza Capriciosa" alt="Pizza Capriciosa"></div>
+                <div class="column"><img class="img" src="fish2.jpg" title="Somon la grătar" alt="Somon la grătar"></div>
+                <div class="column"><img class="img" src="cake1.jpg" title="Chocolate cake" alt="Chocolate cake"></div> 
+            </div>
+            
+            <div class="row"> <!-- randuri separate Kitty, RANDURI SEPARATE! --> 
+                <div class="column"><img class="img" src="drinks.jpg" title="Băuturi" alt="Băuturi"></div>
+                <div class="column"><img class="img" src="cake2.jpg" title="Vanilla cake" alt="Vanilla cake"></div>
+                <div class="column"><img class="img" src="pasta.jpg" title="Paste Bolognese" alt="Paste Bolognese"></div>
+                <div class="column"><img class="img" src="cake3.jpg" title="Original cheesecake" alt="Original cheesecake"></div> 
+            </div>
+            
+            <div class="row">    
+                <div class="column"><img class="img" src="barbecue.jpg" title="Ceafă de porc la grătar" alt="Ceafă de porc la grătar"></div>
+                <div class="column"><img class="img" src="soup.jpg" title="Supă de legume" alt="Supă de legume"></div>
+                <div class="column"><img class="img" src="salad.jpg" title="Salata Caesar" alt="Salata Caesar"></div>
+                <div class="column"><img class="img" src="cake4.jpg" title="Lava cake" alt="Lava cake"></div>   
+            </div>
+        </div>
+        
+        <div class="parallax3"></div>
+        
+        <a id="contact"></a>
+        <h2>Contact</h2>    
+        <div class="contact">    
+           
+            <div class="tabel_rezervare stanga">
+                <form action=""> <!-- form colecteaza datele introduse de utilizator -->
+                    <input type="text" placeholder="Nume">
+                    <input type="tel" placeholder="Telefon">  
+                    <input type="email2" placeholder="e-mail"><br> 
+                    <textarea class="detalii" placeholder="Mesaj"></textarea><br>
+                    <input type="submit" value="Contactează-ne!">
+                </form>
+            </div>  
+            
+            <p class="p1"><br>Telefon: <span class="p2">0746 XXX XXX</span></p>
+            <p class="p1">e-mail: <span class="p2">fantasytaste@restaurant.com</span></p>
+            <p class="p1">Adresă: <span class="p2">Cluj-Napoca, Aleea Răsăritului nr. 17</span></p>
+            <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2732.660320162091!2d23.588020515002096!3d46.77159155327756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47490e9dbd3f0461%3A0xf72bf616b3ba8cb4!2sStrada%20Regele%20Ferdinand%204%2C%20Cluj-Napoca%20400000!5e0!3m2!1sro!2sro!4v1603485496205!5m2!1sro!2sro" frameborder="0"></iframe>
+            
+            <div class="buttons">
+                <a href="https://www.facebook.com/" target="_blank" class="fa fa-facebook"></a> <!-- target="_black" => new tab -->
+                <a href="https://twitter.com/" target="_blank" class="fa fa-twitter"></a>
+                <a href="https://www.instagram.com/" target="_blank" class="fa fa-instagram"></a>
+                <a href="https://ro.pinterest.com/" target="_blank" class="fa fa-pinterest"></a>  
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>Copyright &copy; 2020 Fantasy Taste Restaurant | Toate drepturile rezervate</p>
+    </footer>
+
+    <div>
+        <ul class="column1">
+            <li><a href="#acasa">ACASĂ</a></li>
+            <li><a href="#meniu">MENIU</a></li>
+            <li><a href="#rezervare">REZERVARE</a></li>
+            <li><a href="#recenzii">RECENZII</a></li>
+            <li><a href="#galerie">GALERIE</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+        </ul>
+        
+        <div class="column2">
+            <p>Fantasy Taste</p>
+            <p>Restaurant</p>
+        </div>
+        
+        <div class="column3">
+            <p class="p1">CONTACT</p>
+            <p class="p1"><br>Telefon:<br><span class="p2">0746 XXX XXX</span></p>
+            <p class="p1">e-mail:<br><span class="p2">fantasytaste@restaurant.com</span></p>
+            <p class="p1">Adresă:<br><span class="p2">Cluj-Napoca, Aleea Răsăritului nr. 17</span></p>
+        </div>
+    </div>
+
+</body> <!-- *********************************************************************************************** BODY END -->
+
+</html>
